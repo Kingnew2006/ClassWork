@@ -24,3 +24,32 @@ while True:
         break
     if is_even(x):
         print(x)
+
+
+# ✳️ Подвиг 6  
+tp = input("Введите RECT для прямоугольника или что-то другое для квадрата: ").strip()
+
+if tp == "RECT":
+    def get_sq(a: float, b: float) -> float:
+        return a * b
+else:
+    def get_sq(a: float) -> float:
+        return a * a
+
+ 
+
+
+# ✳️ Подвиг 8  
+def city_info(city_name: str) -> tuple[str, int]:
+    return (city_name, len(city_name))
+
+ 
+cities_input = input("Введите названия городов через пробел: ")
+cities = cities_input.strip().split()
+ 
+ 
+d = {name: length for name, length in (city_info(c) for c in cities)}
+
+ 
+for city in sorted(d, key=lambda c: d[c]):
+    print(f"{city}: {d[city]}")
